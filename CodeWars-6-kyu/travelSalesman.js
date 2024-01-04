@@ -33,32 +33,32 @@ You can see a few addresses and zipcodes in the test cases.
 */
 
 function travel(r, zipcode) {
-	const list = r.split(",").map((x) => {
-		const address = x.match(/(^\d+) ([a-zA-Z.\s]+) ([A-Z]{2} \d+)$/);
-		return {
-			house: address[1],
-			street: address[2],
-			zip: address[3],
-		};
-	});
+	const addressList = r.split(",");
 
-	let streets = [];
-	let houses = [];
+	const streets = [];
+	const numbers = [];
 
-	list.forEach((r) => {
-		if (r.zip === zipcode) {
-			streets.push(r.street);
-			houses.push(r.house);
+	addressList.forEach((address) => {
+		const zip = address.substring(address.length - 8, address.length);
+		if (zipcode === zip) {
+			const number = address.substring(0, address.indexOf(" "));
+			const street = address.substring(
+				address.indexOf(" "),
+				address.length - 8
+			);
+
+			streets.push(street.trim());
+			numbers.push(number.trim());
 		}
 	});
 
-	console.log(`${zipcode}:${streets.join(",")}/${houses.join(",")}`);
+	console.log(`${zipcode}:${streets.join(",")}/${numbers.join(",")}`);
 }
 
-// test case
+// Test Case
 travel(
 	"123 Main Street St. Louisville OH 43071,432 Main Long Road St. Louisville OH 43071,786 High Street Pollocksville NY 56432",
 	"OH 43071"
 );
 
-// node travelSalesman.js
+// Execute in terminal  => node travelSalesman.js
