@@ -52,13 +52,15 @@ function travel(r, zipcode) {
 		}
 	});
 
-	console.log(`${zipcode}:${streets.join(",")}/${numbers.join(",")}`);
+	return `${zipcode}:${streets.join(",")}/${numbers.join(",")}`;
 }
 
 // Test Case
-travel(
-	"123 Main Street St. Louisville OH 43071,432 Main Long Road St. Louisville OH 43071,786 High Street Pollocksville NY 56432",
-	"OH 43071"
+console.log(
+	travel(
+		"123 Main Street St. Louisville OH 43071,432 Main Long Road St. Louisville OH 43071,786 High Street Pollocksville NY 56432",
+		"OH 43071"
+	)
 );
 
 // Execute in terminal  => node travelSalesman.js

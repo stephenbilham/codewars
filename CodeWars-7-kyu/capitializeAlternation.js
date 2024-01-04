@@ -20,7 +20,7 @@ function capitalize(s) {
 		}
 	}
 
-	console.log([s1, s2]);
+	return [s1, s2];
 }
 
 // work around two
@@ -32,5 +32,6 @@ function capitalize(s) {
 //   };
 
 // Test Case
-capitalize("codeWars");
+console.log(capitalize("codeWars"));
+
 // Execute in terminal  => node capitializeAlternation.js
