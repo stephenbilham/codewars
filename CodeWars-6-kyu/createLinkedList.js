@@ -46,7 +46,6 @@ class LinkedList {
 		}
 		return currentNode;
 	}
-
 	insert(value, index) {
 		// If index is out of range, simply append
 		if (index >= this.length) {
@@ -60,6 +59,12 @@ class LinkedList {
 		newNode.next = holdingPointer;
 		this.length++;
 	}
+	delete(index) {
+		const leader = this.findIndex(index - 1);
+		const unwantedNode = leader.next;
+		leader.next = unwantedNode.next;
+		this.length--;
+	}
 }
 
 let test = new LinkedList(10);
@@ -69,5 +74,5 @@ test.preAppend(1);
 // test.findIndex(2)
 test.insert(20, 2);
 test.listTree();
-
-// console.log(test)
+test.delete(2);
+test.listTree();
