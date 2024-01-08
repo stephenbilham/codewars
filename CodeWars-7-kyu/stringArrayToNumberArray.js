@@ -13,6 +13,9 @@ function toNumberArray(stringarray) {
 	return stringarray.map((el) => Number(el));
 }
 
+// OR
+// const toNumberArray = stringarray => stringarray.map(Number);
+
 // Test Case
 toNumberArray(["1.1", "2.2", "3.3"]);
 
